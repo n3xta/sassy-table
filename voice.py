@@ -6,7 +6,7 @@ from playsound import playsound
 
 def generate_speech(text):
     api_key = "sk_762d12664b0bfba01b38598adec0db50504418604a3a0aff"
-    voice_id = "TpIle0udG1y9a8xmjXsn"
+    voice_id = "x959FyxFeswkQQqFjoPb"
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
 
     headers = {
@@ -18,8 +18,10 @@ def generate_speech(text):
         "text": text,
         "model_id": "eleven_multilingual_v2",
         "voice_settings": {
-            "stability": 0.5,
-            "similarity_boost": 0.5
+            "speed": 1.15,
+            "stability": 0.6,
+            "similarity_boost": 0.7,
+            "style_exaggeration": 0.1,
         }
     }
 
@@ -34,6 +36,3 @@ def generate_speech(text):
         os.remove(temp_audio_path)
     else:
         print("Error:", response.text)
-        
-        
-generate_speech("Hello there!")
